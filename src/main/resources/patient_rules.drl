@@ -1,0 +1,9 @@
+import  eu.malservet.sbd.domain.Patient;
+import  eu.malservet.sbd.Tools;
+
+rule "Compute Age"
+    when
+        patObject : Patient( birthDate!=null );
+    then
+        patObject.setAge(Tools.computeAge(patObject.getBirthDate()));
+end;
